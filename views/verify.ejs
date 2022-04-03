@@ -1,13 +1,60 @@
-<html>
+<html lang="">
+<head>
+  <title>Page d'envoi de fichiers</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+</head>
 <body>
-<form ref='uploadForm'
-      id='uploadForm'
-      action='http://localhost:8080/verify'
-      method='post'
-      encType="multipart/form-data">
-  <input type="file" name="sampleFile" />
-  <input type="text" name="clePublique" />
-  <input type='submit' value='Upload!' />
-</form>
+<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <a href="/" class="navbar-brand">IABD_VILLACOUBLAY - Signature Electronique de Documents</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-md-auto">
+        <li class="nav-item">
+          <a rel="noopener" class="nav-link" href="/"><i class="fa fa-github"></i> Envoi de fichiers</a>
+        </li>
+        <li class="nav-item">
+          <a rel="noopener" class="nav-link" href="/check"><i class="fa fa-twitter"></i> Vérification de fichiers</a>
+        </li>
+        <li class="nav-item">
+          <a rel="noopener" class="nav-link" href="https://twitter.com/bootswatch"><i class="fa fa-twitter"></i> Consulter la blockchain</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="row pt-5">
+    <div class="col-12">
+      <form id='uploadForm' action='/verify' method='post' encType="multipart/form-data">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-header">Vérifier la signature de votre fichier.</div>
+          <div class="card-body">
+            <h4 class="card-title">Vérifier votre document facilement ! 😎</h4>
+            <p class="card-text">
+              Envoyez le fichier et la clé publique de l'emetteur, nous vérifirons l'authenticité du fichier.
+            </p>
+            <div class="form-group">
+              <input class="form-control" type="file" id="formFile" name="sampleFile">
+            </div>
+            <div class="form-group">
+              <label class="form-label mt-4">Clé publique de l'emetteur</label>
+              <input type="text" class="form-control" name="clePublique" placeholder="La clé publique !">
+            </div>
+            <br>
+            <hr>
+            <button type="submit" class="btn btn-primary">Vérifier 🔎</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>

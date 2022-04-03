@@ -1,0 +1,59 @@
+<html lang="">
+<head>
+    <title>Consulter la blockchain</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+</head>
+<body>
+<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+        <a href="/" class="navbar-brand">IABD_VILLACOUBLAY - Signature Electronique de Documents</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-md-auto">
+                <li class="nav-item">
+                    <a rel="noopener" class="nav-link" href="/"><i class="fa fa-github"></i> Envoi de fichiers</a>
+                </li>
+                <li class="nav-item">
+                    <a rel="noopener" class="nav-link" href="/check"><i class="fa fa-twitter"></i> Vérification de fichiers</a>
+                </li>
+                <li class="nav-item">
+                    <a rel="noopener" class="nav-link" href="/blockchain"><i class="fa fa-twitter"></i> Consulter la blockchain</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <div class="row pt-5">
+        <div class="col-12">
+
+            <% blocks.forEach(function(block) { %>
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">Date de génération : <%= block.timestamp %></div>
+                    <div class="card-body">
+                        <h4 class="card-title">Hash : <b><%= block.hash %></b></h4>
+                        <p class="card-text">
+                            Données de la transaction
+                            <br><br>
+                            Wallet Origine : <%= block.data[0].to %>
+                            <br><br>
+                            Wallet Destination : <%= block.data[0].from %>
+                            <br><br>
+                            Signature de la transaction : <%= block.data[0].signature %>
+                            <br><br>
+                            Montant : <%= block.data[0].amount %>
+                        </p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
