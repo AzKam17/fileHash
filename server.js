@@ -6,7 +6,8 @@ const crypto = require('crypto');
 const fs = require('fs');
 const app = express();
 const axios = require('axios');
-const API = process.env.API || 'http://localhost:9986/';
+const API = process.env.API || 'http://localhost:9986';
+console.log(API);
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -110,7 +111,7 @@ app.get('/check', function(req, res){
 app.post('/verify', (req, res) => {
 
     let blocks = [];
-    axios.get(API)
+    axios.get(API + '/')
         .then((response) => {
             const chain = response.data;
             chain.map(x => {
