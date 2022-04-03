@@ -167,7 +167,6 @@ app.get('/blockchain', (req, res) => {
     axios.get(API)
         .then((response) => {
             const chain = response.data;
-            console.log(chain[1].data)
             res.render('blockchain', {
                 blocks: chain
             });
